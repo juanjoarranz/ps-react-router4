@@ -5,6 +5,7 @@ const Sidebar = () => {
 
     const links = [
         { name: 'Color', url: '/color' },
+        { name: 'Logging', url: '/logging' },
         { name: 'Prompt', url: '/prompt' },
         { name: 'Prop Viewer', url: '/props' },
         { name: '404 Error', url: '/404Error' },

@@ -7,6 +7,7 @@ import NameForm from './components/prompt/NameForm';
 import PropViewer from './components/PropViewer';
 import PageNotFound from './components/PageNotFound';
 import ColorSwatch from './components/color/ColorSwatch';
+import LoggingHome from './components/logging/LoggingHome';
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
                         <Route path='/' component={Home} exact/>
                         <Route path='/prompt' component={NameForm}/>
                         <Route path='/props' component={PropViewer} />
+                        <Route path='/logging' component={LoggingHome} />
 
                         <Route path='/color' render={() => {
                             return <ColorSwatch color='#ff0000' text='Red' />
