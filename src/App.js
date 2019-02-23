@@ -13,6 +13,8 @@ import PrivateRoute from './components/secure/PrivateRoute';
 import Login from './components/secure/Login';
 import Logout from './components/secure/Logout';
 import SmartColorSwatch from './components/color/SmartColorSwatch';
+import People from './components/people/People';
+import PersonProfileContainer from './containers/PersonProfileContainer';
 
 const App = () => {
 
@@ -28,6 +30,9 @@ const App = () => {
                         <Route path='/prompt' component={NameForm}/>
                         <Route path='/props' component={PropViewer} />
                         <Route path='/logging' component={LoggingHome} />
+
+                        <Route path='/people/:id' component={PersonProfileContainer} />
+                        <Route path='/people' component={People} />
 
                         <Route path='/color/:text/:color' component={SmartColorSwatch} />
                         

@@ -3,19 +3,19 @@ import {Link, Route, withRouter} from "react-router-dom";
 import PropTypes from 'prop-types';
 import LanguageList from "./LanguageList";
 import querystring from 'query-string';
+import LetterList from './LetterList';
 
 const PersonProfile = (props) => {
-
     // the following line of code doesn't work with all browsers
     // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams#Browser_compatibility
-    const query = new URLSearchParams(props.location.search);
-    const name = query.get('name');
-    const occupation = query.get('occupation');
+    // const query = new URLSearchParams(props.location.search);
+    // const name = query.get('name');
+    // const occupation = query.get('occupation');
 
     // so we use this package instead query-string
-    // const qsValues = querystring.parse(props.location.search);
-    // const name = qsValues.name;
-    // const occupation = qsValues.occupation;
+    const qsValues = querystring.parse(props.location.search);
+    const name = qsValues.name;
+    const occupation = qsValues.occupation;
 
     const spanStyle = {
         marginRight: 10,
@@ -23,30 +23,10 @@ const PersonProfile = (props) => {
         fontSize: 20
     };
 
-    let letters = [];
-    let letterLinks = props.languages.map((lang, index) => {
-
-        let letter = lang.item.name.substring(0, 1).toUpperCase();
-        if (!letters.includes(letter)) {
-            letters.push(letter);
-
-            //
-            // const linkUri = `${props.match.url}/languages/${letter}?name=${name}&occupation=${occupation}`;
-            //
-
-            const linkUri = `${props.match.url}/languages/${letter}`;
-
-            return (<span style={spanStyle} key={index}>
-                        <Link to={linkUri}>{letter}</Link>
-                    </span>);
-        }
-    });
-
     return (
         <div>
             <h1>{name}</h1>
             <h3>{occupation}</h3>
-
             <img src={'/assets/Male_2_Circle_Orange.png'} align="right" width={'150'}/>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Commodo elit at imperdiet dui accumsan sit amet nulla. Enim facilisis gravida neque
@@ -59,7 +39,6 @@ const PersonProfile = (props) => {
                 Orci eu lobortis elementum nibh. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus
                 dolor. Eu lobortis elementum nibh tellus molestie nunc. Tempus quam pellentesque nec nam aliquam sem et
                 tortor. Enim nec dui nunc mattis. Sapien eget mi proin sed libero enim sed.</p>
-
             <p>Libero justo laoreet sit amet. Cras sed felis eget velit aliquet sagittis id consectetur purus. Mus
                 mauris vitae ultricies leo. Lacus sed viverra tellus in. Feugiat scelerisque varius morbi enim nunc
                 faucibus a. Vel fringilla est ullamcorper eget. In massa tempor nec feugiat nisl pretium. Enim lobortis
@@ -70,12 +49,15 @@ const PersonProfile = (props) => {
 
             <section>
                 <h3>Programming Languages</h3>
-
-                {letterLinks}
-
-
+                <LetterList languages={props.languages} name={name} occupation={occupation} />
+                
+                <Route path={`${ props.languages.url }/languages/:letter`}
+                    render={() => {
+                        return <LanguageList languages={props.languages}/>
+                    }}
+                />
+                    
             </section>
-
         </div>
     );
 };
