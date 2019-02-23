@@ -51,11 +51,10 @@ const PersonProfile = (props) => {
                 <h3>Programming Languages</h3>
                 <LetterList languages={props.languages} name={name} occupation={occupation} />
                 
-                <Route path={`${ props.languages.url }/languages/:letter`}
+                <Route path={`${ props.match.url }/languages/:letter`}
                     render={() => {
                         return <LanguageList languages={props.languages}/>
-                    }}
-                />
+                    }}/>
                     
             </section>
         </div>
