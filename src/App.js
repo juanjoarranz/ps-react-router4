@@ -12,6 +12,7 @@ import ProtectedHome from './components/secure/ProtectedHome';
 import PrivateRoute from './components/secure/PrivateRoute';
 import Login from './components/secure/Login';
 import Logout from './components/secure/Logout';
+import SmartColorSwatch from './components/color/SmartColorSwatch';
 
 const App = () => {
 
@@ -28,6 +29,8 @@ const App = () => {
                         <Route path='/props' component={PropViewer} />
                         <Route path='/logging' component={LoggingHome} />
 
+                        <Route path='/color/:text/:color' component={SmartColorSwatch} />
+                        
                         <Route path='/color' render={() => {
                             return <ColorSwatch color='#ff0000' text='Red' />
                         }} />
