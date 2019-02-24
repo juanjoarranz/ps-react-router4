@@ -1,6 +1,6 @@
 import React from "react";
-import { NavLink , Link} from 'react-router-dom';
-import {Image} from 'react-bootstrap';
+import { NavLink, Link } from 'react-router-dom';
+import { Image } from 'react-bootstrap';
 
 const Sidebar = () => {
 
@@ -13,6 +13,7 @@ const Sidebar = () => {
         { name: 'Prop Viewer', url: '/props' },
         { name: 'Smart Color', url: '/color/Green/00ff00' },
         { name: 'Recursion', url: '/color/Top Parent/ffff00' },
+        { name: 'Transitions', url: '/transitions' },
         { name: '404 Error', url: '/404Error' },
     ];
 
@@ -32,7 +33,7 @@ const Sidebar = () => {
                 {linksComponents}
             </ul>
             <Link to='/pets'>
-                <Image src='/assets/unicorn.png' width={100}/>
+                <Image src='/assets/unicorn.png' width={100} />
             </Link>
         </div>
     );

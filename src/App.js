@@ -18,6 +18,7 @@ import People from './components/people/People';
 import PersonProfileContainer from './containers/PersonProfileContainer';
 import Unicorn from './components/unicorn/Unicorn';
 import Redirect from 'react-router/es/Redirect';
+import Fade from './components/transition/Fade';
 
 const App = () => {
 
@@ -31,6 +32,8 @@ const App = () => {
                     <Switch>
                         <Route path='/' component={Home} exact />
                         
+                        <Route path='/transitions' component={Fade} />
+
                         <Route path='/unicorn' component={Unicorn} />
                         <Redirect to='/unicorn' from='/pets' />
 
