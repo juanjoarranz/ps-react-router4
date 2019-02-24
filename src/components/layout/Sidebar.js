@@ -11,6 +11,7 @@ const Sidebar = () => {
         { name: 'Private', url: '/private' },
         { name: 'Prop Viewer', url: '/props' },
         { name: 'Smart Color', url: '/color/Green/00ff00' },
+        { name: 'Recursion', url: '/color/Top Parent/ffff00' },
         { name: '404 Error', url: '/404Error' },
     ];
 

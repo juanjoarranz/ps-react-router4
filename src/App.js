@@ -13,6 +13,7 @@ import PrivateRoute from './components/secure/PrivateRoute';
 import Login from './components/secure/Login';
 import Logout from './components/secure/Logout';
 import SmartColorSwatch from './components/color/SmartColorSwatch';
+import RecursiveColorSwatch from './components/color/RecursiveColorSwatch';
 import People from './components/people/People';
 import PersonProfileContainer from './containers/PersonProfileContainer';
 
@@ -34,7 +35,7 @@ const App = () => {
                         <Route path='/people/:id' component={PersonProfileContainer} />
                         <Route path='/people' component={People} />
 
-                        <Route path='/color/:text/:color' component={SmartColorSwatch} />
+                        <Route path='/color/:text/:color' component={RecursiveColorSwatch}/>
                         
                         <Route path='/color' render={() => {
                             return <ColorSwatch color='#ff0000' text='Red' />
