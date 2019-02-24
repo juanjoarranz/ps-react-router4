@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink , Link} from 'react-router-dom';
+import {Image} from 'react-bootstrap';
 
 const Sidebar = () => {
 
@@ -30,6 +31,9 @@ const Sidebar = () => {
                 <li className='nav'><NavLink className={'navLink'} activeClassName={'activeNavLink'} to='/' exact>Home</NavLink></li>
                 {linksComponents}
             </ul>
+            <Link to='/pets'>
+                <Image src='/assets/unicorn.png' width={100}/>
+            </Link>
         </div>
     );
 };

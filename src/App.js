@@ -16,6 +16,8 @@ import SmartColorSwatch from './components/color/SmartColorSwatch';
 import RecursiveColorSwatch from './components/color/RecursiveColorSwatch';
 import People from './components/people/People';
 import PersonProfileContainer from './containers/PersonProfileContainer';
+import Unicorn from './components/unicorn/Unicorn';
+import Redirect from 'react-router/es/Redirect';
 
 const App = () => {
 
@@ -27,7 +29,11 @@ const App = () => {
                 <div className='rightContentContainer'>
 
                     <Switch>
-                        <Route path='/' component={Home} exact/>
+                        <Route path='/' component={Home} exact />
+                        
+                        <Route path='/unicorn' component={Unicorn} />
+                        <Redirect to='/unicorn' from='/pets' />
+
                         <Route path='/prompt' component={NameForm}/>
                         <Route path='/props' component={PropViewer} />
                         <Route path='/logging' component={LoggingHome} />
